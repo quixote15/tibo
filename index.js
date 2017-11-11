@@ -17,13 +17,13 @@ module.exports = (token, blacklist) => {
 }
 
 const start = () => {
-     axios.get('https://api.gotinder.com/recs/core?locale=pt-BR', tiboData.headers)
+     axios.get('https://api.gotinder.com/recs/core', tiboData.headers)
           .then(res => {
                res.data.results.map((person, i) => {
                     person.bio.split(' ').map(word => {
                          tiboData.blacklist.map(blacklistWord => {
                               if (word.toLowerCase() === blacklistWord) {
-                                   axios.options(`https://api.gotinder.com/pass/{person._id}?locale=pt-BR`, tiboData.headers)
+                                   axios.options(`https://api.gotinder.com/pass/{person._id}`, tiboData.headers)
                                         .then(() => {
                                              console.log(colors.red(`Recusou ${person.name}, ${new Date().getFullYear() - new Date(person.birth_date).getFullYear()} (motivo: "${blacklistWord}" na bio)`))
                                         })
@@ -34,7 +34,7 @@ const start = () => {
                               }
                          })
                     })
-                    axios.options(`https://api.gotinder.com/like/{person._id}?locale=pt-BR`, tiboData.headers)
+                    axios.options(`https://api.gotinder.com/like/{person._id}`, tiboData.headers)
                          .then(() => {
                               console.log(colors.green(`Curtiu ${person.name}, ${new Date().getFullYear() - new Date(person.birth_date).getFullYear()}`))
                          })
