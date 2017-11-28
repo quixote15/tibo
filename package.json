@@ -1,15 +1,17 @@
 {
   "name": "tibo",
   "version": "1.0.0",
-  "description": "The best Tinder bot!",
+  "description": "The best Tinder bot ever!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
+      
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.0",
-    "colors": "^1.1.2"
+    "colors": "^1.1.2",
+    "image-downloader": "^3.3.0"
   }
 }
